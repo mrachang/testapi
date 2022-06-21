@@ -40,8 +40,12 @@ public class messageHandler {
 		message.put("type", "text");
 		if("text"=="你好") {
 			message.put("text", "你好");
+		}else if("text"=="你叫什麼名子?") {
+			message.put("text","我叫測試2");
+			message.put("packageId",446);
+			message.put("stickerId",1988);
 		}else {
-			message.put("text",text);
+			message.put("text","我看不懂");
 		}
 		messages.put(message);
 		body.put("replyToken", replyToken);
