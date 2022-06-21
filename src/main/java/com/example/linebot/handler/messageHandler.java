@@ -43,11 +43,6 @@ public class messageHandler {
 		}else {
 			message.put("text","我看不懂");
 		}
-		if("text"=="你叫什麼名子?") {
-			message.put("text", "我叫測試2");
-		}else {
-			message.put("text","我看不懂");
-		}
 		messages.put(message);
 		body.put("replyToken", replyToken);
 		body.put("messages", messages);
