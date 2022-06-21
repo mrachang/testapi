@@ -40,14 +40,15 @@ public class messageHandler {
 		if (text=="你好") {
 			message.put("type", "text");
 			message.put("text", "你好");
+			messages.put(message);
+			body.put("replyToken", replyToken);
+			body.put("messages", messages);
+			sendLinePlatform(body);
 		}else {
 			message.put("type", "text");
 			message.put("text", "我看不懂");
 		}
-		messages.put(message);
-		body.put("replyToken", replyToken);
-		body.put("messages", messages);
-		sendLinePlatform(body);
+		
 	}
 
 	private void sticker(String replyToken, String packageId, String stickerId) {
