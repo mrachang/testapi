@@ -40,12 +40,15 @@ public class messageHandler {
 		message.put("type", "text");
 		if(text=="你好") {
 			message.put("text", "你好啊");
+			messages.put(message);
+			body.put("replyToken", replyToken);
+			body.put("messages", messages);
 		}else {
 			message.put("text","我看不懂");
+			messages.put(message);
+			body.put("replyToken", replyToken);
+			body.put("messages", messages);
 		}
-		messages.put(message);
-		body.put("replyToken", replyToken);
-		body.put("messages", messages);
 		sendLinePlatform(body);
 		}
 	
