@@ -37,17 +37,18 @@ public class messageHandler {
 		JSONObject body = new JSONObject();
 		JSONArray messages = new JSONArray();
 		JSONObject message = new JSONObject();
-		if (text=="你好") {
+		if (text==text) {
 			message.put("type", "text");
 			message.put("text", "你好");
-			messages.put(message);
-			body.put("replyToken", replyToken);
-			body.put("messages", messages);
-			sendLinePlatform(body);
+			
 		}else {
 			message.put("type", "text");
 			message.put("text", "我看不懂");
 		}
+		messages.put(message);
+		body.put("replyToken", replyToken);
+		body.put("messages", messages);
+		sendLinePlatform(body);
 		
 	}
 
