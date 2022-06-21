@@ -40,8 +40,11 @@ public class messageHandler {
 		message.put("type", "text");
 		if("text"=="你好") {
 			message.put("text", "你好");
-		}else if("text"=="你叫什麼名子?") {
-			message.put("text","我叫測試2");
+		}else {
+			message.put("text","我看不懂");
+		}
+		if("text"=="你叫什麼名子?") {
+			message.put("text", "我叫測試2");
 		}else {
 			message.put("text","我看不懂");
 		}
