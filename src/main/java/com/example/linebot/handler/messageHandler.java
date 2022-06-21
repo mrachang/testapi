@@ -38,17 +38,16 @@ public class messageHandler {
 		JSONArray messages = new JSONArray();
 		JSONObject message = new JSONObject();
 		message.put("type", "text");
-		if(text=="你好") {
+		if("text"==text) {
 			message.put("text", "你好啊");
-			messages.put(message);
-			body.put("replyToken", replyToken);
-			body.put("messages", messages);
-		}else {
+				
+		}else { 
 			message.put("text","我看不懂");
-			messages.put(message);
-			body.put("replyToken", replyToken);
-			body.put("messages", messages);
+			
 		}
+		messages.put(message);
+		body.put("replyToken", replyToken);
+		body.put("messages", messages);
 		sendLinePlatform(body);
 		}
 	
