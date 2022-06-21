@@ -7,7 +7,6 @@ import java.security.NoSuchAlgorithmException;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.json.JSONObject;
@@ -24,14 +23,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.linebot.handler.messageHandler;
 
-
 @RequestMapping("/")
 @RestController
 public class RobotController {
 	@Value("${line.user.secret}")
 	 private String LINE_SECRET;
 	 @Autowired
-	 private HttpServletRequest httpServletRequest;
+	 private messageHandler messageHandler;
 	 
 	 @GetMapping("/test")
 	 public ResponseEntity test(){
@@ -40,11 +38,11 @@ public class RobotController {
 	 @PostMapping("/callback")
 	 public ResponseEntity messagingAPI(@RequestHeader("X-Line-Signature") String X_Line_Signature, @RequestBody String requestBody) throws UnsupportedEncodingException, IOException{
 	  if(checkFromLine(requestBody, X_Line_Signature)) {
-	   System.out.println("成功");
-	   JSONObject object = new JSONObject(requestBody);
-	   for(int i=0; i<object.getJSONArray("events").length(); i++) {
-	    if(object.getJSONArray("events").getJSONObject(i).getString("type").equals("message")) {
-	     messageHandler.doAction(object.getJSONArray("events").getJSONObject(i));
+		  System.out.println("成功");
+		  JSONObject object = new JSONObject(requestBody);
+		  for(int i=0; i<object.getJSONArray("events").length(); i++) {
+			  	if(object.getJSONArray("events").getJSONObject(i).getString("type").equals("message")) {
+			  		messageHandler.doAction(object.getJSONArray("events").getJSONObject(i));
 	    }
 	   }
 	   return new ResponseEntity<String>("OK", HttpStatus.OK);
