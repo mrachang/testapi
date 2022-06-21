@@ -34,7 +34,6 @@ public class messageHandler {
 	}
 
 	private void text(String replyToken, String text) {
-		if(text=="你好") {
 		JSONObject body = new JSONObject();
 		JSONArray messages = new JSONArray();
 		JSONObject message = new JSONObject();
@@ -44,18 +43,8 @@ public class messageHandler {
 		body.put("replyToken", replyToken);
 		body.put("messages", messages);
 		sendLinePlatform(body);		
-		}else {
-			JSONObject body = new JSONObject();
-			JSONArray messages = new JSONArray();
-			JSONObject message = new JSONObject();
-			message.put("text", "看不懂");
-			messages.put(message);
-			body.put("replyToken", replyToken);
-			body.put("messages", messages);
-			sendLinePlatform(body);
 		}
 		
-	}
 
 	private void sticker(String replyToken, String packageId, String stickerId) {
 		JSONObject body = new JSONObject();
