@@ -48,7 +48,7 @@ public class messageHandler {
 		body.put("messages", messages);
 		sendLinePlatform(body);
 		}
-	}
+	
 
 	private void sticker(String replyToken, String packageId, String stickerId) {
 		JSONObject body = new JSONObject();
