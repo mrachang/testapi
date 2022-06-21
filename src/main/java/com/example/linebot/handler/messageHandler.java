@@ -39,11 +39,11 @@ public class messageHandler {
 		JSONObject message = new JSONObject();
 		if (text==text) {
 			message.put("type", "text");
-			message.put("text", "你好");
-			
-		}else {
-			message.put("type", "text");
 			message.put("text", "我看不懂");
+			
+		}else if(text=="哈囉") {
+			message.put("type", "text");
+			message.put("text", "哈囉");
 		}
 		messages.put(message);
 		body.put("replyToken", replyToken);
