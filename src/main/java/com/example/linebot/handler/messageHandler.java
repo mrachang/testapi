@@ -37,11 +37,10 @@ public class messageHandler {
 		JSONObject body = new JSONObject();
 		JSONArray messages = new JSONArray();
 		JSONObject message = new JSONObject();
-		if(text=="你好") {
-			message.put("type", "text");
+		message.put("type", "text");
+		if("text"=="你好") {
 			message.put("text", "你好啊");
 		}else {
-			message.put("type", "text");
 			message.put("text","我看不懂");
 		}
 		messages.put(message);
